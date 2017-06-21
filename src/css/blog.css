@@ -1,0 +1,48 @@
+
+.card{
+  width: 100%;
+  margin-top: 15px;
+  height: 80px;
+  position: relative;
+}
+
+.index{
+  background:rgb(0, 188, 212);
+  width: 10%;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  float: left;
+  height: 80px;
+  line-height: 80px;
+}
+.title{
+  color: rgb(119, 119, 119);
+}
+.aside{
+  float: left;
+  padding: 0 2%;
+
+}
+.aside h3{
+  font-size: 18px;
+  margin-top: 20px;
+}
+.blog-btn{
+  -webkit-transition: all 450ms ease;
+  transition: all 450ms ease;
+  background-color: #fff;
+  border: 1px solid #FF4081;
+  border-radius: 20px;
+  padding: 1px 10px;
+  color: #FF4081;
+  font-size: 14px;
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+}
+.blog-btn:hover{
+  color:#fff;
+  background-color: #ff4081;
+}
