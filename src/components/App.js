@@ -1,6 +1,8 @@
 import React from 'react';
 import {HashRouter,Route} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import store from '../redux/store'
+import {Provider} from 'react-redux'
 
 import Header from './Header';
 import Footer from './Footer';
@@ -23,7 +25,7 @@ class App extends React.Component{
     }
   }
   setNav(){
-    document.body.clientWidth>768 ? this.setState({mobile:false}) : this.setState({mobile:true})
+    document.body.clientWidth>765 ? this.setState({mobile:false}) : this.setState({mobile:true})
   }
   componentWillMount(){
     this.setNav();
@@ -34,17 +36,19 @@ class App extends React.Component{
     return (
       <MuiThemeProvider>
         <HashRouter>
+          <Provider store={store}>
           <div className='content-wrap'>
             {this.state.mobile ? <Header /> : <LeftNav />}
             <div className='content-main'>
               <Route exact path='/' component={Home}/>
-              <Route path='/blog' component={Blog}/>
-              <Route path='/work' component={Work}/>
-              <Route path='/about' component={About}/>
-              <Route path='/post/:item' component={Post}/>
+              <Route path='/Blog' component={Blog}/>
+              <Route path='/Work' component={Work}/>
+              <Route path='/About' component={About}/>
+              <Route path='/content/:item/:id' component={Post}/>
             </div>
             {this.state.mobile ? <Footer /> : null}
           </div>
+          </Provider>
         </HashRouter>
       </MuiThemeProvider>
 

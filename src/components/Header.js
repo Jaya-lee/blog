@@ -1,16 +1,19 @@
 import React from 'react';
-import Button from 'antd/lib/button';
 import {withRouter} from 'react-router-dom';
 
 class Header extends React.Component{
+  handleBack(){
+    this.props.history.goBack()
+  }
   render(){
-    let pathname = this.props.location.pathname.slice(1).toUpperCase();
+      let pathname = this.props.location.pathname.slice(1)
     return (
-      <header>
-        <Button icon="left" onClick={()=>this.props.history.goBack()}>返回</Button>
-        <h2>Jaya@{!pathname ? 'HOME' : pathname.includes('POST') ? 'NOTE' : pathname }</h2>
-        <Button icon="right" onClick={()=>this.props.history.go(1)}>前进</Button>
-      </header>
+      <div className="nav-header">
+        <p style={{fontSize:'18px'}} onClick={this.handleBack.bind(this)}>
+          Back</p>
+          <h2>Jaya@{!pathname ? 'Home' : pathname.includes('content') ? 'Item' : pathname }</h2>
+        <a href='https://github.com/Jaya-lee' target='bank'></a>
+      </div>
     )
   }
 }

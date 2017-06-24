@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import CircularProgress from 'material-ui/CircularProgress';
+// import TextField from 'material-ui/TextField';
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
 import '../css/blog.css'
 import Paper from 'material-ui/Paper';
@@ -9,20 +11,25 @@ class Blog extends React.Component{
   constructor(){
     super();
     this.state={
-      data: [],
       wait: true
     }
   }
   componentDidMount(){
     axios.get('https://raw.githubusercontent.com/Jaya-lee/blog-data/master/blogData.json')
-      .then(res =>this.setState({data: res.data,wait: false}))
-
+      .then(res =>{
+        this.setState({wait:false}),
+        this.props.dispatch({type:'DATA',data:res.data})
+      })
       .catch(err => alert(err))
   }
+  // handleChange(e){
+  //   this.setState({input:e.target.value})
+  // }
   render(){
     let sty={
       display:'flex',
-      flexDirection:'column'
+      flexDirection:'column',
+      marginTop:'40%'
     }
     let styc={
       margin:'50px auto'
@@ -30,6 +37,8 @@ class Blog extends React.Component{
     let styp={
       textAlign:'center'
     }
+    let posts = []
+    this.props.data.forEach(item => posts=[...posts,...item.posts])
     return (
       <div style={{width:'100%',width:'92%',margin:'20px auto'}}>
         {
@@ -40,19 +49,15 @@ class Blog extends React.Component{
            </div>:
             <div>
               {
-                this.state.data.map(folder =>
-                  folder.posts.map(item=>
+                    posts.map(item=>
                      <Paper zDepth={2} className='card' key={Math.random()}>
                       <p className='index'>{item.index}</p>
                       <div className='aside'>
                         <h3 className='title'>{item.title}</h3>
-                        <Link to={`/post/${item.url}`} className="blog-btn">阅读更多</Link>
+                        <Link to={`/content/${item.url}`} className="blog-btn">阅读更多</Link>
                       </div>
                     </Paper>
-
-                  )
                 )
-
               }
             </div>
         }
@@ -60,4 +65,7 @@ class Blog extends React.Component{
     )
   }
 }
-export default Blog
+const mapStateToProps =(state)=>({
+  data:state.data
+})
+export default connect(mapStateToProps)(Blog)
