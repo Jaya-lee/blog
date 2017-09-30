@@ -28,7 +28,7 @@ class Echarts extends React.Component {
       xAxis : [
         {
           type : 'category',
-          data : ['HTML', 'CSS', 'JS', 'React', 'Redux', 'Node', 'Vue'],
+          data : ['HTML', 'CSS', 'JS', 'React', 'Redux', 'AngularJS', 'Vue','Node'],
           axisTick: {
             alignWithLabel: true
           }
@@ -36,7 +36,7 @@ class Echarts extends React.Component {
       ],
       yAxis : [
         {
-          type : 'value',
+          type : "value",
           name:'百分数(%)',
           nameTextStyle:{
             color:'#2196F3',
@@ -49,7 +49,7 @@ class Echarts extends React.Component {
           name:'技能熟练度',
           type:'bar',
           barWidth: '60%',
-          data:[88, 88, 78, 70, 70, 50, 45]
+          data:[90, 90, 90, 70, 70,60,50, 45]
         }
       ]
     }

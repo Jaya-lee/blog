@@ -83,10 +83,10 @@ footer svg:focus{
   fill:#ff4081;
 }
 footer .click{
-  color: rgb(124, 77, 255);
+  color: rgb(255, 65, 129);
 }
 footer .click svg >path{
-  fill:rgb(124, 77, 255);
+  fill:rgb(255, 65, 129);
 }
 footer p:last-child{
   border: none;
@@ -95,7 +95,7 @@ footer p:last-child{
 .left-nav{
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 240px;
   flex-shrink: 0;
   background:rgb(0, 188, 212);
 }
@@ -143,7 +143,7 @@ footer p:last-child{
 }
 .home-cover{
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
 }

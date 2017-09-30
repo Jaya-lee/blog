@@ -40,7 +40,7 @@ class Blog extends React.Component{
     let posts = []
     this.props.data.forEach(item => posts=[...posts,...item.posts])
     return (
-      <div style={{width:'100%',width:'92%',margin:'20px auto'}}>
+      <div style={{width:'92%',margin:'20px auto'}}>
         {
           this.state.wait ?
           <div style={sty}>
